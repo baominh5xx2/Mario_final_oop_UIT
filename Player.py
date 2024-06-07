@@ -1,7 +1,101 @@
 import pygame as pg
 
 from Const import *
+"""
+    Một lớp đại diện cho người chơi trong trò chơi.
 
+    Thuộc tính
+    ----------
+    numOfLives : int
+        Số mạng của người chơi.
+    score : int
+        Điểm số của người chơi.
+    coins : int
+        Số lượng xu mà người chơi thu thập.
+    visible : bool
+        Trạng thái hiển thị của người chơi.
+    spriteTick : int
+        Biến đếm cho hoạt hình của người chơi.
+    powerLVL : int
+        Cấp độ sức mạnh của người chơi.
+    unkillable : bool
+        Trạng thái không thể bị giết của người chơi.
+    unkillableTime : int
+        Thời gian còn lại cho trạng thái không thể bị giết.
+    inLevelUpAnimation : bool
+        Trạng thái hoạt hình lên cấp.
+    inLevelUpAnimationTime : int
+        Thời gian còn lại cho hoạt hình lên cấp.
+    inLevelDownAnimation : bool
+        Trạng thái hoạt hình xuống cấp.
+    inLevelDownAnimationTime : int
+        Thời gian còn lại cho hoạt hình xuống cấp.
+    already_jumped : bool
+        Trạng thái đã nhảy của người chơi.
+    next_jump_time : int
+        Thời gian tiếp theo cho phép nhảy.
+    next_fireball_time : int
+        Thời gian tiếp theo cho phép bắn đạn lửa.
+    x_vel : float
+        Vận tốc theo trục x.
+    y_vel : float
+        Vận tốc theo trục y.
+    direction : bool
+        Hướng di chuyển của người chơi.
+    on_ground : bool
+        Trạng thái đang đứng trên mặt đất.
+    fast_moving : bool
+        Trạng thái di chuyển nhanh.
+    pos_x : float
+        Vị trí theo trục x của người chơi.
+    image : pygame.Surface
+        Hình ảnh hiện tại của người chơi.
+    sprites : list
+        Danh sách các hình ảnh cho hoạt hình của người chơi.
+    rect : pygame.Rect
+        Hình chữ nhật đại diện cho vị trí và kích thước của người chơi.
+
+    Phương thức
+    ----------
+    load_sprites():
+        Tải các hình ảnh cho hoạt hình của người chơi.
+    update(core):
+        Cập nhật trạng thái và hoạt hình của người chơi.
+    player_physics(core):
+        Xử lý vật lý cho người chơi.
+    set_image(image_id):
+        Đặt hình ảnh hiện tại của người chơi dựa trên ID.
+    update_image(core):
+        Cập nhật hình ảnh của người chơi dựa trên trạng thái hiện tại.
+    update_unkillable_time():
+        Cập nhật thời gian còn lại cho trạng thái không thể bị giết.
+    update_x_pos(blocks):
+        Cập nhật vị trí theo trục x của người chơi.
+    update_y_pos(blocks, core):
+        Cập nhật vị trí theo trục y của người chơi.
+    activate_block_action(core, block):
+        Kích hoạt hành động khi va chạm với khối.
+    reset(reset_all):
+        Đặt lại trạng thái của người chơi.
+    reset_jump():
+        Đặt lại trạng thái nhảy của người chơi.
+    reset_move():
+        Đặt lại trạng thái di chuyển của người chơi.
+    jump_on_mob():
+        Xử lý khi người chơi nhảy lên đầu kẻ thù.
+    set_powerlvl(power_lvl, core):
+        Đặt cấp độ sức mạnh của người chơi.
+    change_powerlvl_animation():
+        Thay đổi hoạt hình cấp độ sức mạnh.
+    flag_animation_move(core, walk_to_castle):
+        Xử lý hoạt hình di chuyển khi người chơi hoàn thành cấp độ.
+    add_coins(count):
+        Thêm xu cho người chơi.
+    add_score(count):
+        Thêm điểm cho người chơi.
+    render(core):
+        Hiển thị người chơi lên màn hình.
+    """
 
 class Player(object):
     def __init__(self, x_pos, y_pos):
