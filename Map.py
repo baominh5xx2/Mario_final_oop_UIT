@@ -18,12 +18,130 @@ from PlatformDebris import PlatformDebris
 from CoinDebris import CoinDebris
 from Text import Text
 from Goombas_1 import Goombas_1
+"""
+    Lớp để quản lý bản đồ trong trò chơi.
 
+    Thuộc tính
+    ----------
+    obj : list
+        Danh sách các đối tượng trong bản đồ.
+    obj_bg : list
+        Danh sách các đối tượng nền trong bản đồ.
+    tubes : list
+        Danh sách các ống trong bản đồ.
+    debris : list
+        Danh sách các mảnh vỡ trong bản đồ.
+    mobs : list
+        Danh sách các kẻ thù trong bản đồ.
+    projectiles : list
+        Danh sách các viên đạn trong bản đồ.
+    text_objects : list
+        Danh sách các đối tượng văn bản trong bản đồ.
+    koopa : list
+        Danh sách các koopa trong bản đồ.
+    map : list
+        Bản đồ dưới dạng danh sách 2D.
+    flag : Flag
+        Cột cờ trong bản đồ.
+    mapSize : tuple
+        Kích thước của bản đồ.
+    sky : pygame.Surface
+        Bầu trời trong bản đồ.
+    textures : dict
+        Từ điển chứa các kết cấu trong bản đồ.
+    worldNum : str
+        Số của thế giới hiện tại.
+    is_mob_spawned : list
+        Trạng thái xuất hiện của kẻ thù.
+    score_for_killing_mob : int
+        Điểm số khi giết kẻ thù.
+    score_time : int
+        Thời gian tính điểm.
+    in_event : bool
+        Trạng thái sự kiện.
+    tick : int
+        Biến đếm thời gian.
+    time : int
+        Thời gian còn lại.
+    oPlayer : Player
+        Người chơi trong bản đồ.
+    oCamera : Camera
+        Camera trong bản đồ.
+    oEvent : Event
+        Sự kiện trong bản đồ.
+    oGameUI : GameUI
+        Giao diện người chơi.
+
+    Phương thức
+    ----------
+    load_world():
+        Tải thế giới hiện tại.
+    loadWorld_11():
+        Tải thế giới 1-1.
+    loadWorld_12():
+        Tải thế giới 1-2.
+    loadWorld_13():
+        Tải thế giới 1-3.
+    reset(reset_all):
+        Đặt lại bản đồ.
+    get_name():
+        Trả về tên của thế giới hiện tại.
+    get_player():
+        Trả về đối tượng người chơi.
+    get_camera():
+        Trả về đối tượng camera.
+    get_event():
+        Trả về đối tượng sự kiện.
+    get_ui():
+        Trả về đối tượng giao diện người chơi.
+    get_blocks_for_collision(x, y):
+        Trả về các khối xung quanh thực thể để kiểm tra va chạm.
+    get_blocks_below(x, y):
+        Trả về các khối dưới thực thể để kiểm tra trạng thái đứng trên mặt đất.
+    get_mobs():
+        Trả về danh sách kẻ thù.
+    spawn_tube(x_coord, y_coord):
+        Tạo ra một ống tại vị trí xác định.
+    spawn_mushroom(x, y):
+        Tạo ra một nấm tại vị trí xác định.
+    spawn_goombas(x, y, move_direction):
+        Tạo ra một goomba tại vị trí xác định.
+    spawn_koopa(x, y, move_direction):
+        Tạo ra một koopa tại vị trí xác định.
+    spawn_flower(x, y):
+        Tạo ra một bông hoa tại vị trí xác định.
+    spawn_debris(x, y, type):
+        Tạo ra mảnh vỡ tại vị trí xác định.
+    spawn_score_text(x, y, score=None):
+        Tạo ra văn bản điểm số tại vị trí xác định.
+    remove_object(object):
+        Xóa đối tượng khỏi bản đồ.
+    remove_whizbang(whizbang):
+        Xóa viên đạn khỏi bản đồ.
+    remove_text(text_object):
+        Xóa văn bản khỏi bản đồ.
+    update_player(core):
+        Cập nhật trạng thái người chơi.
+    update_entities(core):
+        Cập nhật trạng thái các thực thể.
+    update_time(core):
+        Cập nhật thời gian của bản đồ.
+    update_score_time():
+        Cập nhật thời gian tính điểm.
+    entity_collisions(core):
+        Kiểm tra va chạm của thực thể.
+    player_death(core):
+        Xử lý khi người chơi chết.
+    player_win(core):
+        Xử lý khi người chơi chiến thắng.
+    update(core):
+        Cập nhật trạng thái của bản đồ.
+    render_map(core):
+        Hiển thị bản đồ lên màn hình.
+    render(core):
+        Hiển thị tất cả đối tượng lên màn hình.
+    """
 class Map(object):
-    """
-    This class contains every map object: tiles, mobs and player. Also,
-    there are camera, event and UI.
-    """
 
     def __init__(self, world_num):
         self.obj = []
