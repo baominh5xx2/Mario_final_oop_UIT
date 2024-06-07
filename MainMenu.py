@@ -2,7 +2,29 @@ import pygame as pg
 
 from Const import *
 from Text import Text
+"""
+    Lớp để quản lý menu chính của trò chơi.
 
+    Thuộc tính
+    ----------
+    screen : pygame.Surface
+        Bề mặt hiển thị của menu chính.
+    font : pygame.font.Font
+        Font chữ của menu chính.
+    options : list
+        Danh sách các tùy chọn trong menu chính.
+    selected_option : int
+        Tùy chọn hiện đang được chọn.
+
+    Phương thức
+    ----------
+    render():
+        Hiển thị menu chính lên màn hình.
+    navigate(direction):
+        Điều hướng qua các tùy chọn trong menu chính.
+    select():
+        Chọn tùy chọn hiện tại.
+    """
 class MainMenu(object):
     def __init__(self):
         # Load the background image
