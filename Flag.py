@@ -1,5 +1,23 @@
 import pygame as pg
+"""
+    Lớp đại diện cho cột cờ trong trò chơi.
 
+    Thuộc tính
+    ----------
+    rect : pygame.Rect
+        Hình chữ nhật đại diện cho vị trí và kích thước của cột cờ.
+    image : pygame.Surface
+        Hình ảnh của cột cờ.
+    flag_rect : pygame.Rect
+        Hình chữ nhật đại diện cho vị trí và kích thước của cờ.
+    flag_image : pygame.Surface
+        Hình ảnh của cờ.
+
+    Phương thức
+    ----------
+    render(core):
+        Hiển thị cột cờ lên màn hình.
+    """
 
 class Flag(object):
     def __init__(self, x_pos, y_pos):
