@@ -1,14 +1,29 @@
 import pygame as pg
 
 from Const import *
+"""
+    Lớp đại diện cho các mảnh vỡ của nền tảng trong trò chơi.
 
+    Thuộc tính
+    ----------
+    rect : pygame.Rect
+        Hình chữ nhật đại diện cho vị trí và kích thước của mảnh vỡ.
+    image : pygame.Surface
+        Hình ảnh của mảnh vỡ.
+    x_vel : float
+        Vận tốc theo trục x của mảnh vỡ.
+    y_vel : float
+        Vận tốc theo trục y của mảnh vỡ.
+
+    Phương thức
+    ----------
+    update(core):
+        Cập nhật trạng thái của mảnh vỡ.
+    render(core):
+        Hiển thị mảnh vỡ lên màn hình.
+    """
 
 class PlatformDebris(object):
-    """
-
-    Debris which appears when you destroy a brick block.
-
-    """
     def __init__(self, x_pos, y_pos):
         self.image = pg.image.load('images/block_debris0.png').convert_alpha()
 
