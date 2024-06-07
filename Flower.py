@@ -1,7 +1,25 @@
 import pygame as pg
 
 from Entity import Entity
+"""
+    Lớp đại diện cho bông hoa trong trò chơi.
 
+    Thuộc tính
+    ----------
+    rect : pygame.Rect
+        Hình chữ nhật đại diện cho vị trí và kích thước của bông hoa.
+    image : pygame.Surface
+        Hình ảnh của bông hoa.
+    state : int
+        Trạng thái của bông hoa.
+
+    Phương thức
+    ----------
+    update(core):
+        Cập nhật trạng thái của bông hoa.
+    render(core):
+        Hiển thị bông hoa lên màn hình.
+    """
 
 class Flower(Entity):
     def __init__(self, x_pos, y_pos):
