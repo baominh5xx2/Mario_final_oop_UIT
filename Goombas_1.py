@@ -3,7 +3,31 @@ import pygame as pg
 from Entity import Entity
 from Const import *
 
+""
+    Lớp đại diện cho kẻ thù Goombas trong trò chơi.
 
+    Thuộc tính
+    ----------
+    rect : pygame.Rect
+        Hình chữ nhật đại diện cho vị trí và kích thước của Goombas.
+    image : pygame.Surface
+        Hình ảnh của Goombas.
+    direction : bool
+        Hướng di chuyển của Goombas.
+    speed : float
+        Vận tốc của Goombas.
+    state : int
+        Trạng thái của Goombas.
+
+    Phương thức
+    ----------
+    update(core):
+        Cập nhật trạng thái của Goombas.
+    render(core):
+        Hiển thị Goombas lên màn hình.
+    die(core, instantly, crushed):
+        Xử lý khi Goombas chết.
+    """
 class Goombas_1(Entity):
     def __init__(self, x_pos, y_pos, move_direction):
         super().__init__()
