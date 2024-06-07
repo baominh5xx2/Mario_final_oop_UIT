@@ -1,6 +1,22 @@
 import pygame as pg
 
+"""
+    Lớp để quản lý giao diện người chơi trong trò chơi.
 
+    Thuộc tính
+    ----------
+    screen : pygame.Surface
+        Bề mặt hiển thị của giao diện người chơi.
+    font : pygame.font.Font
+        Font chữ của giao diện người chơi.
+    text_color : tuple
+        Màu sắc của văn bản.
+
+    Phương thức
+    ----------
+    render(core):
+        Hiển thị giao diện người chơi lên màn hình.
+    """
 class GameUI(object):
     def __init__(self):
         self.font = pg.font.Font('fonts/emulogic.ttf', 20)
