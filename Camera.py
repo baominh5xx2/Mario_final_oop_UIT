@@ -2,7 +2,27 @@ import pygame as pg
 
 from Const import *
 
+"""
+    Lớp để quản lý camera trong trò chơi.
 
+    Thuộc tính
+    ----------
+    width : int
+        Chiều rộng của camera.
+    height : int
+        Chiều cao của camera.
+    camera : pygame.Rect
+        Hình chữ nhật đại diện cho vị trí và kích thước của camera.
+
+    Phương thức
+    ----------
+    apply(entity):
+        Áp dụng camera cho một thực thể.
+    update(target):
+        Cập nhật vị trí của camera dựa trên mục tiêu.
+    reset():
+        Đặt lại vị trí của camera.
+    """
 class Camera(object):
 
     def __init__(self, width, height):
