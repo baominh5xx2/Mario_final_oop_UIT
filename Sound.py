@@ -1,5 +1,25 @@
 import pygame as pg
+"""
+    Một lớp để quản lý âm thanh trong trò chơi.
 
+    Thuộc tính
+    ----------
+    sounds : dict
+        Từ điển chứa các âm thanh của trò chơi.
+
+    Phương thức
+    ----------
+    load_sounds():
+        Tải các âm thanh vào từ điển.
+    play(name, loops, volume):
+        Phát âm thanh.
+    stop(name):
+        Dừng phát âm thanh.
+    start_fast_music(core):
+        Bắt đầu phát nhạc nhanh.
+    toggle_mute():
+        Bật/tắt âm thanh.
+    """
 class Sound(object):
     def __init__(self):
         self.sounds = {}
