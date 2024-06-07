@@ -2,7 +2,25 @@ import pygame as pg
 
 from Entity import Entity
 from Const import *
+"""
+    Lớp đại diện cho nấm trong trò chơi.
 
+    Thuộc tính
+    ----------
+    rect : pygame.Rect
+        Hình chữ nhật đại diện cho vị trí và kích thước của nấm.
+    image : pygame.Surface
+        Hình ảnh của nấm.
+    state : int
+        Trạng thái của nấm.
+
+    Phương thức
+    ----------
+    update(core):
+        Cập nhật trạng thái của nấm.
+    render(core):
+        Hiển thị nấm lên màn hình.
+    """
 
 class Mushroom(Entity):
     def __init__(self, x_pos, y_pos, move_direction):
