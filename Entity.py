@@ -1,6 +1,24 @@
 import pygame as pg
 from Const import *
+"""
+    Lớp cơ sở cho tất cả các thực thể trong trò chơi.
 
+    Thuộc tính
+    ----------
+    rect : pygame.Rect
+        Hình chữ nhật đại diện cho vị trí và kích thước của thực thể.
+    image : pygame.Surface
+        Hình ảnh của thực thể.
+    type : str
+        Loại của thực thể.
+    collision : bool
+        Trạng thái va chạm của thực thể.
+
+    Phương thức
+    ----------
+    render(core):
+        Hiển thị thực thể lên màn hình.
+    """
 
 class Entity(object):
     """
