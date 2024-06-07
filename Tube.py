@@ -1,5 +1,19 @@
 import pygame as pg
+"""
+    Lớp đại diện cho ống trong trò chơi.
 
+    Thuộc tính
+    ----------
+    rect : pygame.Rect
+        Hình chữ nhật đại diện cho vị trí và kích thước của ống.
+    image : pygame.Surface
+        Hình ảnh của ống.
+
+    Phương thức
+    ----------
+    render(core):
+        Hiển thị ống lên màn hình.
+    """
 
 class Tube(pg.sprite.Sprite):
     def __init__(self, x_pos, y_pos):
