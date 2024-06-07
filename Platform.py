@@ -1,6 +1,24 @@
 import pygame as pg
 
+"""
+    Lớp đại diện cho nền tảng trong trò chơi.
 
+    Thuộc tính
+    ----------
+    rect : pygame.Rect
+        Hình chữ nhật đại diện cho vị trí và kích thước của nền tảng.
+    image : pygame.Surface
+        Hình ảnh của nền tảng.
+    typeID : int
+        ID loại của nền tảng.
+    bonus : str
+        Phần thưởng của nền tảng.
+
+    Phương thức
+    ----------
+    render(core):
+        Hiển thị nền tảng lên màn hình.
+    """
 class Platform(object):
     def __init__(self, x, y, image, type_id):
         self.image = image
