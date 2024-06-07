@@ -1,7 +1,33 @@
 import pygame as pg
 from Text import Text
 from Const import *
+"""
+    Một lớp để quản lý hướng dẫn của trò chơi.
 
+    Thuộc tính
+    ----------
+    screen : pygame.Surface
+        Bề mặt hiển thị của hướng dẫn.
+    is_showing : bool
+        Trạng thái hiển thị của hướng dẫn.
+    guide_text : list
+        Danh sách các dòng văn bản hướng dẫn.
+    texts : list
+        Danh sách các đối tượng văn bản để hiển thị.
+    guide_image : pygame.Surface
+        Hình ảnh hướng dẫn.
+    guide_image_rect : pygame.Rect
+        Hình chữ nhật đại diện cho vị trí và kích thước của hình ảnh hướng dẫn.
+
+    Phương thức
+    ----------
+    render(core):
+        Hiển thị hướng dẫn lên màn hình.
+    show(core):
+        Hiển thị hướng dẫn và xử lý đầu vào từ người dùng.
+    hide(core):
+        Ẩn hướng dẫn.
+    """
 class Guide:
     def __init__(self, screen):
         self.screen = screen
