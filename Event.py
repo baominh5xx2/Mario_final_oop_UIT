@@ -1,6 +1,32 @@
 import pygame as pg
 from Const import *
+"""
+    Lớp để quản lý các sự kiện trong trò chơi.
 
+    Thuộc tính
+    ----------
+    event_id : int
+        ID của sự kiện.
+    player_in_castle : bool
+        Trạng thái của người chơi trong lâu đài.
+    win : bool
+        Trạng thái chiến thắng.
+    killed : bool
+        Trạng thái bị giết.
+    core : Core
+        Đối tượng Core của trò chơi.
+
+    Phương thức
+    ----------
+    start_win(core):
+        Bắt đầu sự kiện chiến thắng.
+    start_kill(core, game_over):
+        Bắt đầu sự kiện bị giết.
+    update(core):
+        Cập nhật trạng thái của sự kiện.
+    reset():
+        Đặt lại sự kiện.
+    """
 class Event(object):
     def __init__(self):
         # 0 = Kill/Game Over
