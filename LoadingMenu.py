@@ -2,7 +2,31 @@ import pygame as pg
 
 from Const import *
 from Text import Text
+"""
+    Lớp để quản lý menu tải trò chơi.
 
+    Thuộc tính
+    ----------
+    screen : pygame.Surface
+        Bề mặt hiển thị của menu tải trò chơi.
+    font : pygame.font.Font
+        Font chữ của menu tải trò chơi.
+    text : pygame.Surface
+        Văn bản hiển thị trên menu tải trò chơi.
+    text_rect : pygame.Rect
+        Hình chữ nhật đại diện cho vị trí và kích thước của văn bản.
+    is_showing : bool
+        Trạng thái hiển thị của menu tải trò chơi.
+
+    Phương thức
+    ----------
+    set_text_and_type(text, is_loading, size):
+        Đặt văn bản và kiểu hiển thị của menu tải trò chơi.
+    update_time():
+        Cập nhật thời gian hiển thị của menu tải trò chơi.
+    render():
+        Hiển thị menu tải trò chơi lên màn hình.
+    """
 class LoadingMenu(object):
     def __init__(self, core):
         self.iTime = pg.time.get_ticks()
