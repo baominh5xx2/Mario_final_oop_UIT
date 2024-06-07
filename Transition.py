@@ -1,5 +1,29 @@
 import pygame as pg
+"""
+    Lớp để quản lý hiệu ứng chuyển cảnh trong trò chơi.
 
+    Thuộc tính
+    ----------
+    screen : pygame.Surface
+        Bề mặt hiển thị của hiệu ứng chuyển cảnh.
+    is_fading_in : bool
+        Trạng thái của hiệu ứng chuyển cảnh vào.
+    is_fading_out : bool
+        Trạng thái của hiệu ứng chuyển cảnh ra.
+    fade_alpha : int
+        Mức độ trong suốt của hiệu ứng chuyển cảnh.
+
+    Phương thức
+    ----------
+    start_fade_in():
+        Bắt đầu hiệu ứng chuyển cảnh vào.
+    start_fade_out():
+        Bắt đầu hiệu ứng chuyển cảnh ra.
+    update():
+        Cập nhật trạng thái của hiệu ứng chuyển cảnh.
+    render():
+        Hiển thị hiệu ứng chuyển cảnh lên màn hình.
+    """
 class Transition:
     def __init__(self, screen):
         self.screen = screen
