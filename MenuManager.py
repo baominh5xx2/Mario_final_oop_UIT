@@ -2,7 +2,29 @@ import pygame as pg
 from LoadingMenu import LoadingMenu
 from MainMenu import MainMenu
 from GameOverMenu import GameOverMenu
+"""
+    Lớp để quản lý các menu trong trò chơi.
 
+    Thuộc tính
+    ----------
+    core : Core
+        Đối tượng Core của trò chơi.
+    currentGameState : str
+        Trạng thái hiện tại của trò chơi.
+    oLoadingMenu : LoadingMenu
+        Menu tải trò chơi.
+    oMainMenu : MainMenu
+        Menu chính của trò chơi.
+    oGameOverMenu : GameOverMenu
+        Menu kết thúc trò chơi.
+
+    Phương thức
+    ----------
+    update(core):
+        Cập nhật trạng thái của menu.
+    render(core):
+        Hiển thị menu lên màn hình.
+    """
 class MenuManager(object):
     """
     That class allows to easily handle game states. Depending on the situation,
