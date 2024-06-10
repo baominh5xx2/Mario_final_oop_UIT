@@ -3,7 +3,7 @@ import pygame as pg
 from Entity import Entity
 from Const import *
 
-""
+"""
     Lớp đại diện cho kẻ thù Goombas trong trò chơi.
 
     Thuộc tính
