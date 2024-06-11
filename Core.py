@@ -7,84 +7,76 @@ from MenuManager import MenuManager
 from Sound import Sound
 from Transition import Transition
 from Guide import Guide
-"""
-    Lớp chính của trò chơi.
 
-    Thuộc tính
-    ----------
-    screen : pygame.Surface
-        Bề mặt hiển thị của trò chơi.
-    clock : pygame.time.Clock
-        Đồng hồ để kiểm soát tốc độ khung hình của trò chơi.
-    worlds : list
-        Danh sách các thế giới trong trò chơi.
-    current_world_index : int
-        Chỉ số của thế giới hiện tại.
-    oWorld : Map
-        Bản đồ của thế giới hiện tại.
-    oSound : Sound
-        Đối tượng âm thanh của trò chơi.
-    oMM : MenuManager
-        Quản lý menu của trò chơi.
-    transition : Transition
-        Hiệu ứng chuyển cảnh.
-    guide : Guide
-        Hướng dẫn trò chơi.
-    run : bool
-        Trạng thái chạy của trò chơi.
-    keyR : bool
-        Trạng thái phím mũi tên phải.
-    keyL : bool
-        Trạng thái phím mũi tên trái.
-    keyU : bool
-        Trạng thái phím mũi tên lên.
-    keyD : bool
-        Trạng thái phím mũi tên xuống.
-    keyShift : bool
-        Trạng thái phím Shift.
-    keySpace : bool
-        Trạng thái phím Space.
-    total_score : int
-        Tổng điểm của người chơi.
-
-    Phương thức
-    ----------
-    main_loop():
-        Vòng lặp chính của trò chơi.
-    input():
-        Xử lý đầu vào từ người chơi.
-    input_player():
-        Xử lý đầu vào khi ở trạng thái trò chơi.
-    input_menu():
-        Xử lý đầu vào khi ở trạng thái menu.
-    update():
-        Cập nhật trạng thái của trò chơi.
-    render():
-        Hiển thị trò chơi lên màn hình.
-    get_map():
-        Trả về bản đồ hiện tại.
-    get_mm():
-        Trả về quản lý menu.
-    get_sound():
-        Trả về đối tượng âm thanh.
-    load_next_map():
-        Tải bản đồ tiếp theo.
-    reset_to_menu():
-        Đặt lại trò chơi về menu chính.
-    start_game():
-        Bắt đầu trò chơi.
-    show_map_message():
-        Hiển thị thông báo bản đồ hiện tại.
-    show_guide():
-        Hiển thị hướng dẫn.
-    hide_guide():
-        Ẩn hướng dẫn.
-    """
 class Core(object):
     """
-    Main class.
+    Lớp Core đại diện cho lớp chính của trò chơi.
+
+    Thuộc tính:
+        screen (Surface): Bề mặt màn hình chính của trò chơi.
+        clock (Clock): Đồng hồ để kiểm soát tốc độ khung hình.
+        worlds (list): Danh sách các thế giới trong trò chơi.
+        current_world_index (int): Chỉ số của thế giới hiện tại.
+        oWorld (Map): Đối tượng bản đồ hiện tại.
+        oSound (Sound): Đối tượng âm thanh của trò chơi.
+        oMM (MenuManager): Quản lý menu của trò chơi.
+        transition (Transition): Hiệu ứng chuyển cảnh.
+        guide (Guide): Hướng dẫn trò chơi.
+        run (bool): Trạng thái chạy của trò chơi.
+        keyR, keyL, keyU, keyD, keyShift, keySpace (bool): Trạng thái của các phím điều khiển.
+        total_score (int): Tổng điểm của người chơi.
+
+    Phương thức:
+        __init__(world_num='1-1'):
+            Khởi tạo lớp Core với thế giới bắt đầu là '1-1'.
+        
+        main_loop():
+            Vòng lặp chính của trò chơi.
+        
+        input():
+            Xử lý đầu vào của người chơi.
+        
+        input_player():
+            Xử lý đầu vào của người chơi khi ở trong trò chơi.
+        
+        input_menu():
+            Xử lý đầu vào của người chơi khi ở trong menu.
+        
+        update():
+            Cập nhật trạng thái của trò chơi.
+        
+        render():
+            Vẽ các đối tượng lên màn hình.
+        
+        get_map():
+            Trả về đối tượng bản đồ hiện tại.
+        
+        get_mm():
+            Trả về đối tượng quản lý menu.
+        
+        get_sound():
+            Trả về đối tượng âm thanh.
+        
+        load_next_map():
+            Tải bản đồ tiếp theo và cập nhật trạng thái trò chơi.
+        
+        reset_to_menu():
+            Đặt lại trò chơi về menu chính.
+        
+        start_game():
+            Bắt đầu trò chơi mới.
+        
+        show_map_message():
+            Hiển thị thông báo bản đồ hiện tại.
+        
+        show_guide():
+            Hiển thị hướng dẫn trò chơi.
+        
+        hide_guide():
+            Ẩn hướng dẫn trò chơi.
     """
-    def __init__(self, world_num='1-2'):
+
+    def __init__(self, world_num='1-1'):
         environ['SDL_VIDEO_CENTERED'] = '1'
         pg.mixer.pre_init(44100, -16, 2, 1024)
         pg.init()
@@ -162,14 +154,17 @@ class Core(object):
         for e in pg.event.get():
             if e.type == pg.QUIT:
                 self.transition.start_fade_out()
-                self.run = False
-            elif e.type == KEYDOWN:
-                if e.key == K_1:
-                    self.start_game()
-                elif e.key == K_2:
-                    self.show_guide()
-                elif e.key == K_3:
-                    self.run = False
+                self.run = False 
+            elif e.type == MOUSEBUTTONDOWN:
+                if e.button == 1:
+                    pos = pg.mouse.get_pos()
+                    option = self.get_mm().oMainMenu.get_option_at_pos(pos)
+                    if option == 0:
+                        self.start_game()
+                    elif option == 1:
+                        self.show_guide()
+                    elif option == 2:
+                        self.run = False
 
     def update(self):
         self.get_mm().update(self)
@@ -198,7 +193,7 @@ class Core(object):
             self.transition.start_fade_in()
         else:
             self.get_mm().currentGameState = 'Loading'
-            self.get_mm().oLoadingMenu.set_text_and_type(f'I hope you enjoyed. Total Score: {self.total_score}', False, 24)
+            self.get_mm().oLoadingMenu.set_text_and_type(f'Congratulation. Total Score: {self.total_score}', False, 24)
             self.get_mm().oLoadingMenu.update_time()
             self.get_sound().play('game_over', 0, 0.5)
 
@@ -235,5 +230,5 @@ class Core(object):
 
 # Entry point for the game
 if __name__ == "__main__":
-    core = Core(world_num='1-2')
+    core = Core(world_num='1-1')
     core.main_loop()
