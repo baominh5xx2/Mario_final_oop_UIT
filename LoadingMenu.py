@@ -2,39 +2,43 @@ import pygame as pg
 
 from Const import *
 from Text import Text
-"""
-    Lớp để quản lý menu tải trò chơi.
 
-    Thuộc tính
-    ----------
-    screen : pygame.Surface
-        Bề mặt hiển thị của menu tải trò chơi.
-    font : pygame.font.Font
-        Font chữ của menu tải trò chơi.
-    text : pygame.Surface
-        Văn bản hiển thị trên menu tải trò chơi.
-    text_rect : pygame.Rect
-        Hình chữ nhật đại diện cho vị trí và kích thước của văn bản.
-    is_showing : bool
-        Trạng thái hiển thị của menu tải trò chơi.
-
-    Phương thức
-    ----------
-    set_text_and_type(text, is_loading, size):
-        Đặt văn bản và kiểu hiển thị của menu tải trò chơi.
-    update_time():
-        Cập nhật thời gian hiển thị của menu tải trò chơi.
-    render():
-        Hiển thị menu tải trò chơi lên màn hình.
-    """
 class LoadingMenu(object):
+    """
+    Lớp LoadingMenu đại diện cho màn hình tải của trò chơi, hiển thị thông tin 
+    về thế giới hiện tại và điều khiển trạng thái tải.
+
+    Thuộc tính:
+        iTime (int): Thời gian bắt đầu tải.
+        loadingType (bool): Loại tải (True cho tải vào game, False cho tải về menu chính).
+        bg (Surface): Bề mặt nền của màn hình tải.
+        text (Text): Đối tượng văn bản hiển thị tên thế giới.
+
+    Phương thức:
+        __init__(core):
+            Khởi tạo LoadingMenu bằng cách thiết lập thời gian tải, loại tải, 
+            tạo nền và đối tượng văn bản.
+        
+        update(core):
+            Cập nhật trạng thái của màn hình tải dựa trên thời gian hiện tại.
+        
+        set_text_and_type(text, type, fontsize=32):
+            Đặt lại văn bản và loại tải.
+        
+        render(core):
+            Vẽ màn hình tải lên màn hình chính.
+        
+        update_time():
+            Cập nhật lại thời gian bắt đầu tải.
+    """
+    
     def __init__(self, core):
         self.iTime = pg.time.get_ticks()
         self.loadingType = True
         self.bg = pg.Surface((WINDOW_W, WINDOW_H))
         self.text = Text('WORLD ' + core.oWorld.get_name(), 32, (WINDOW_W / 2, WINDOW_H / 2))
 
-    def update(self, core):
+    def update(self, core): 
         if pg.time.get_ticks() >= self.iTime + (5250 if not self.loadingType else 2500):
             if self.loadingType:
                 core.oMM.currentGameState = 'Game'
