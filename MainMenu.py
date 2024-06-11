@@ -46,9 +46,9 @@ class MainMenu(object):
         self.texts = []
 
         # Create text objects with centered positions
-        self.texts.append(Text('1  PLAY GAME', 16, ((WINDOW_W / 2), (WINDOW_H / 2) + 40), textcolor=(0, 0, 0)))
-        self.texts.append(Text('2  OPTIONS', 16, ((WINDOW_W / 2), (WINDOW_H / 2) + 60), textcolor=(0, 0, 0)))
-        self.texts.append(Text('3  EXIT', 16, ((WINDOW_W / 2), (WINDOW_H / 2) + 80), textcolor=(0, 0, 0)))
+        self.texts.append(Text('  PLAY GAME', 16, ((WINDOW_W / 2), (WINDOW_H / 2) + 40), textcolor=(0, 0, 0)))
+        self.texts.append(Text('  Guide', 16, ((WINDOW_W / 2), (WINDOW_H / 2) + 60), textcolor=(0, 0, 0)))
+        self.texts.append(Text('  EXIT', 16, ((WINDOW_W / 2), (WINDOW_H / 2) + 80), textcolor=(0, 0, 0)))
 
     def update(self, core):
         pass
@@ -66,3 +66,15 @@ class MainMenu(object):
         
         # Update the display
         pg.display.flip()
+
+    def get_option_rects(self):
+        # Returns a list of rectangles corresponding to each menu option
+        return [text.get_rect() for text in self.texts]
+
+    def get_option_at_pos(self, pos):
+        # Returns the index of the option at the given position
+        for i, text in enumerate(self.texts):
+            if text.get_rect().collidepoint(pos):
+                return i
+        return -1
+
