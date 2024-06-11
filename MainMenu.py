@@ -13,6 +13,23 @@ class MainMenu(object):
         additionalImage (Surface): Hình ảnh bổ sung hiển thị trong menu chính.
         additionalImage_rect (Rect): Hình chữ nhật để định vị hình ảnh bổ sung.
         texts (list): Danh sách các đối tượng Text cho các tùy chọn menu.
+
+    Phương thức:
+        __init__():
+            Khởi tạo MainMenu bằng cách tải và thay đổi kích thước hình ảnh, 
+            tạo các đối tượng văn bản và đặt vị trí của chúng.
+        
+        update(core):
+            Cập nhật trạng thái của menu chính.
+        
+        render(core):
+            Vẽ menu chính lên màn hình.
+        
+        get_option_rects():
+            Trả về danh sách các hình chữ nhật tương ứng với từng tùy chọn menu.
+        
+        get_option_at_pos(pos):
+            Trả về chỉ số của tùy chọn tại vị trí được cung cấp.
     """
 
     def __init__(self):
