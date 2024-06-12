@@ -36,8 +36,7 @@ class Guide:
             "Game Instructions:",
             "Left Arrow Key: Move Left",
             "Right Arrow Key: Move Right",
-            "Up Arrow Key: Jump",
-            "Shift Key: Run Fast"
+            "Up Arrow Key: Jump"
         ]
         self.texts = []
         y = 70
